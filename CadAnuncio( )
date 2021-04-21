@@ -1,0 +1,50 @@
+import Img from './Componentes/ComponentImg';
+
+
+const CadVeiculos = ()=>{  
+
+    return(
+            <form id='bordaSelect'>
+                <h4>Cadastrar um anúncio</h4>
+
+                <div>
+                    <label htmlFor="titulo">Título do anúncio</label>
+                    <br/>
+                    <input  required type="Text" id= "titulo" name= "titulo" required/>
+                </div>
+
+                <div>
+                    <label htmlFor="descricao">Descrição</label>
+                    <br/>
+                    <textarea required id="descricao" rows="5" cols="50" maxLength="200"></textarea>
+                </div>
+                
+                <div>
+                    <label htmlFor="marca">Marca do veículo</label>
+                    <br/>
+                    <input  required type="Text" id= "marca" name= "marca" required/>
+                </div>
+                
+                <div>
+                    <label htmlFor="modelo">Modelo do veículo</label>
+                    <br/>
+                    <input  required type="Text" id= "modelo" name= "modelo" required/>
+                </div>
+  
+                <div id="comboImages">
+                    <Img/>
+                    <Img/>
+                    <Img/>
+                    <Img/>
+                    <Img/>
+                </div>
+
+                <div id='divBtAnuncio'>
+                    <input name="btAnuncio" id="btAnuncio" type="submit" form="bordaSelect" value=' Anunciar ' />
+                </div>
+
+            </form>
+  );
+}
+
+export default CadVeiculos;
