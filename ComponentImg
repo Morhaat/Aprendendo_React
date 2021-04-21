@@ -1,0 +1,50 @@
+import React from 'react';
+import Div from './styled';
+import btFecha from '../../../../imgs/btFecha.jpg';
+
+class Img extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            fileURL: null,
+            file: null,
+            stImage: false
+        }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleClick = this.handleClick.bind(this)
+
+    }
+    handleChange(event) {
+        this.setState({
+            fileURL: URL.createObjectURL(event.target.files[0]),
+            file: event.target.files[0],
+            stImage: true
+        })
+        return(
+            this.state.file
+        )
+    }
+
+    handleClick(){
+        this.setState({
+            file: null,
+            fileURL: null,
+            stImage: false    
+        })
+    }
+
+    render() {
+        return (
+            <Div id="blocoImg" image={this.state.stImage}>
+                <div id="divImg">
+                    <img id="imgPrincipal"src={this.state.fileURL} alt="" />
+                    <img id="imgBt" onClick={this.handleClick} src={btFecha} alt="botão para excluir imagens selecionadas"/>
+                </div>
+                <div>
+                    <input type="file" value={e=> e.target.value = this.file} onChange={this.handleChange} /> 
+                </div>
+            </Div>
+        );
+    }
+}
+export default Img;
